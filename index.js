@@ -12,7 +12,8 @@ const requestHandler = (req, resp) => {
 	  	tweet = data[0].text;
 	  } else {
 	    tweet = "Error al buscar tweet";
-	  }
+		}
+		console.log("Responded");
 	  resp.end(tweet);
 	});
 }
