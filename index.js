@@ -1,6 +1,7 @@
 // content of index.js
 const http = require('http');
 const port = 3000;
+const destroyTweets = require('./destroyTweets.js');
 var Twitter = require('twitter');
 var config = require('./config.js');
 var T = new Twitter(config);
@@ -14,6 +15,7 @@ const requestHandler = (req, resp) => {
 			tweet = 'Error al buscar tweet';
 		}
 		console.log('Responded');
+		destroyTweets.removeAllTweetMinusLast(T, data);
 		resp.end(tweet);
 	});
 };
